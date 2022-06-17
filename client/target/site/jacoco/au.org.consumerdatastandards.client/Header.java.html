@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Header.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Client Library</a> &gt; <a href="index.source.html" class="el_package">au.org.consumerdatastandards.client</a> &gt; <span class="el_source">Header.java</span></div><h1>Header.java</h1><pre class="source lang-java linenums">package au.org.consumerdatastandards.client;
+
+<span class="nc" id="L3">public enum Header {</span>
+
+<span class="nc" id="L5">    VERSION(&quot;x-v&quot;, CustomDataType.PositiveInteger),</span>
+
+<span class="nc" id="L7">    MIN_VERSION(&quot;x-min-v&quot;, CustomDataType.PositiveInteger),</span>
+
+<span class="nc" id="L9">    FAPI_INTERACTION_ID(&quot;x-fapi-interaction-id&quot;, CustomDataType.UUID),</span>
+
+<span class="nc" id="L11">    FAPI_AUTH_DATE(&quot;x-fapi-auth-date&quot;, CustomDataType.DateTime),</span>
+
+<span class="nc" id="L13">    FAPI_CUSTOMER_IP_ADDRESS(&quot;x-fapi-customer-ip-address&quot;, CustomDataType.IPAddress),</span>
+
+<span class="nc" id="L15">    CDS_USER_AGENT(&quot;x-cds-User-Agent&quot;, CustomDataType.Base64),</span>
+
+<span class="nc" id="L17">    CDS_SUBJECT(&quot;x-cds-subject&quot;, CustomDataType.ASCII);</span>
+
+    private String key;
+
+    private CustomDataType customDataType;
+
+<span class="nc" id="L23">    Header(String key, CustomDataType customDataType) {</span>
+<span class="nc" id="L24">        this.key = key;</span>
+<span class="nc" id="L25">        this.customDataType = customDataType;</span>
+<span class="nc" id="L26">    }</span>
+
+    public String getKey() {
+<span class="nc" id="L29">        return key;</span>
+    }
+
+    public CustomDataType getCustomDataType() {
+<span class="nc" id="L33">        return customDataType;</span>
+    }
+
+    public Header fromKey(String key) {
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (Header header: values()) {</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">            if (header.key.equals(key)) {</span>
+<span class="nc" id="L39">                return header;</span>
+            }
+        }
+<span class="nc" id="L42">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

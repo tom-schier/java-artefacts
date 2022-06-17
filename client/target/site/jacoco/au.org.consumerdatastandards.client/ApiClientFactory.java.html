@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ApiClientFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Client Library</a> &gt; <a href="index.source.html" class="el_package">au.org.consumerdatastandards.client</a> &gt; <span class="el_source">ApiClientFactory.java</span></div><h1>ApiClientFactory.java</h1><pre class="source lang-java linenums">package au.org.consumerdatastandards.client;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.nimbusds.jose.JOSEException;
+import com.nimbusds.jose.JWSAlgorithm;
+import com.nimbusds.jose.JWSHeader;
+import com.nimbusds.jose.JWSObject;
+import com.nimbusds.jose.crypto.RSASSASigner;
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jwt.JWTClaimsSet;
+import com.nimbusds.jwt.SignedJWT;
+import okhttp3.Credentials;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.tls.HandshakeCertificates;
+import okhttp3.tls.HeldCertificate;
+import org.apache.commons.lang3.StringUtils;
+import org.bouncycastle.util.io.pem.PemObject;
+import org.bouncycastle.util.io.pem.PemReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.X509TrustManager;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.MalformedURLException;
+import java.net.Proxy;
+import java.net.URL;
+import java.security.KeyFactory;
+import java.security.KeyPair;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.text.ParseException;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
+
+public class ApiClientFactory {
+
+    private static final int EXPIRY_BUFFER = 10000;
+    private static final long DEFAULT_ACCESS_TOKEN_VALIDITY = 60;
+<span class="nc" id="L62">    private static final Logger LOGGER = LoggerFactory.getLogger(ApiClientFactory.class);</span>
+<span class="nc" id="L63">    private static final List&lt;String&gt; VALID_PROXY_TYPES = Arrays.asList(&quot;HTTP:&quot;, &quot;HTTPS:&quot;, &quot;SOCKS:&quot;);</span>
+
+<span class="nc" id="L65">    private static final JsonParser parser = new JsonParser();</span>
+<span class="nc" id="L66">    private static final HashMap&lt;String, JsonObject&gt; discoveredConfigs = new HashMap&lt;&gt;();</span>
+
+    public static long accessTokenExpiresAt;
+    protected final ApiClientOptions clientOptions;
+
+<span class="nc" id="L71">    public ApiClientFactory(ApiClientOptions clientOptions) {</span>
+<span class="nc" id="L72">        this.clientOptions = clientOptions;</span>
+<span class="nc" id="L73">    }</span>
+
+    public ApiClient create(boolean authRequired, boolean validating) throws ApiException {
+<span class="nc" id="L76">        String serverUrl = clientOptions.getServerUrl();</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (StringUtils.isBlank(serverUrl)) {</span>
+<span class="nc" id="L78">            LOGGER.error(&quot;Server Base URL is currently unset, cannot proceed until it is specified using `server` command&quot;);</span>
+<span class="nc" id="L79">            throw new ApiException(&quot;Server URL not set, please use `server` command to set Server URL first&quot;);</span>
+        }
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (!isValidUrl(serverUrl)) {</span>
+<span class="nc" id="L82">            LOGGER.error(&quot;Invalid server url of {} specified, please double check&quot;, serverUrl);</span>
+<span class="nc" id="L83">            throw new ApiException(&quot;Invalid Server URL, please double check it&quot;);</span>
+        }
+<span class="nc bnc" id="L85" title="All 4 branches missed.">        ApiClient apiClient = new ApiClient(clientOptions.isValidationEnabled() || validating);</span>
+<span class="nc" id="L86">        String proxy = clientOptions.getProxy();</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        if (!StringUtils.isBlank(proxy)) {</span>
+<span class="nc" id="L88">            setProxy(apiClient, proxy);</span>
+<span class="nc" id="L89">            LOGGER.info(&quot;Proxy is set to {}&quot;, proxy);</span>
+        }
+<span class="nc" id="L91">        OkHttpClient originalHttpClient = apiClient.getHttpClient();</span>
+<span class="nc" id="L92">        apiClient.setBasePath(serverUrl);</span>
+<span class="nc" id="L93">        LOGGER.info(&quot;Server Base URL is set to {}&quot;, serverUrl);</span>
+<span class="nc" id="L94">        String userAgent = clientOptions.getUserAgent();</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (!StringUtils.isBlank(userAgent)) {</span>
+<span class="nc" id="L96">            apiClient.addDefaultHeader(&quot;x-cds-client-headers&quot;, Base64.getEncoder().encodeToString((&quot;User-Agent: &quot; + userAgent).getBytes()));</span>
+<span class="nc" id="L97">            LOGGER.info(&quot;User Agent in x-cds-client-headers is set to {}&quot;, userAgent);</span>
+        }
+
+<span class="nc bnc" id="L100" title="All 2 branches missed.">        if (authRequired) {</span>
+<span class="nc bnc" id="L101" title="All 4 branches missed.">            if ((accessTokenExpiresAt == 0 || accessTokenExpiresAt &lt; System.currentTimeMillis() + EXPIRY_BUFFER)</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">                    &amp;&amp; StringUtils.isNotBlank(clientOptions.getRefreshToken())) {</span>
+<span class="nc" id="L103">                renewTokens(clientOptions, originalHttpClient);</span>
+            }
+<span class="nc bnc" id="L105" title="All 4 branches missed.">            if (StringUtils.isBlank(clientOptions.getAccessToken()) &amp;&amp; StringUtils.isNotBlank(clientOptions.getAuthServer())) {</span>
+<span class="nc" id="L106">                acquireNewTokens();</span>
+            }
+<span class="nc" id="L108">            apiClient.addDefaultHeader(&quot;Authorization&quot;, &quot;Bearer &quot; + clientOptions.getAccessToken());</span>
+        }
+
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (clientOptions.isMtlsEnabled()) {</span>
+<span class="nc" id="L112">            validateClientCertSettings();</span>
+<span class="nc" id="L113">            String rootCaFilePath = clientOptions.getRootCaFilePath();</span>
+<span class="nc" id="L114">            String clientKeyFilePath = clientOptions.getKeyFilePath();</span>
+<span class="nc" id="L115">            String clientCertFilePath = clientOptions.getCertFilePath();</span>
+            try {
+<span class="nc" id="L117">                X509Certificate rootCaCertificate = loadCertificate(rootCaFilePath);</span>
+<span class="nc" id="L118">                X509Certificate certificate = loadCertificate(clientCertFilePath);</span>
+<span class="nc" id="L119">                PublicKey publicKey = certificate.getPublicKey();</span>
+<span class="nc" id="L120">                PrivateKey privateKey = loadPrivateKey(clientKeyFilePath);</span>
+<span class="nc" id="L121">                KeyPair keyPair = new KeyPair(publicKey, privateKey);</span>
+<span class="nc" id="L122">                HeldCertificate heldCertificate = new HeldCertificate(keyPair, certificate);</span>
+<span class="nc" id="L123">                OkHttpClient httpClient = buildHttpClient(originalHttpClient, rootCaCertificate, heldCertificate);</span>
+<span class="nc" id="L124">                apiClient.setHttpClient(httpClient);</span>
+<span class="nc" id="L125">            } catch (IOException | NoSuchAlgorithmException | InvalidKeySpecException | CertificateException e) {</span>
+<span class="nc" id="L126">                throw new ApiException(e);</span>
+<span class="nc" id="L127">            }</span>
+<span class="nc" id="L128">            LOGGER.info(&quot;Enabled MTLS&quot;);</span>
+<span class="nc" id="L129">        } else {</span>
+<span class="nc" id="L130">            apiClient.setHttpClient(originalHttpClient);</span>
+<span class="nc" id="L131">            LOGGER.info(&quot;Disabled MTLS&quot;);</span>
+        }
+<span class="nc" id="L133">        apiClient.setDebugging(clientOptions.isDebugEnabled());</span>
+<span class="nc" id="L134">        LOGGER.info(&quot;Debugging is set to {}&quot;, apiClient.isDebugging());</span>
+<span class="nc" id="L135">        apiClient.setVerifyingSsl(clientOptions.isVerifyingSsl());</span>
+<span class="nc" id="L136">        LOGGER.info(&quot;Verifying SSL is set to {}&quot;, apiClient.isVerifyingSsl());</span>
+
+<span class="nc" id="L138">        return apiClient;</span>
+    }
+
+    protected void acquireNewTokens() {
+<span class="nc" id="L142">        LOGGER.warn(&quot;New tokens required.&quot;);</span>
+<span class="nc" id="L143">    }</span>
+
+    private static void renewTokens(ApiClientOptions clientOptions, OkHttpClient httpClient) throws ApiException {
+        try {
+<span class="nc" id="L147">            JsonObject jsonObject = discoveredInfo(httpClient, clientOptions.getAuthServer());</span>
+<span class="nc" id="L148">            String tokenEndpoint = jsonObject.get(&quot;token_endpoint&quot;).getAsString();</span>
+<span class="nc" id="L149">            JWKSet jwkSet = JWKSet.load(new File(clientOptions.getJwksPath()));</span>
+<span class="nc" id="L150">            RSAKey rsaKey = (RSAKey) jwkSet.getKeys().get(0);</span>
+<span class="nc" id="L151">            JWTClaimsSet claims = new JWTClaimsSet.Builder()</span>
+<span class="nc" id="L152">                    .subject(clientOptions.getClientId())</span>
+<span class="nc" id="L153">                    .issuer(clientOptions.getClientId())</span>
+<span class="nc" id="L154">                    .audience(tokenEndpoint)</span>
+<span class="nc" id="L155">                    .expirationTime(new Date(System.currentTimeMillis() + 5 * 60 * 1000)) // the assertion expires in 5 minutes</span>
+<span class="nc" id="L156">                    .jwtID(UUID.randomUUID().toString())</span>
+<span class="nc" id="L157">                    .build();</span>
+<span class="nc" id="L158">            JWSObject signedJWT = new SignedJWT(new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(rsaKey.getKeyID()).build(), claims);</span>
+<span class="nc" id="L159">            RSASSASigner signer = new RSASSASigner(rsaKey);</span>
+<span class="nc" id="L160">            signedJWT.sign(signer);</span>
+<span class="nc" id="L161">            RequestBody postBody = new FormBody.Builder()</span>
+<span class="nc" id="L162">                    .add(&quot;grant_type&quot;, &quot;refresh_token&quot;)</span>
+<span class="nc" id="L163">                    .add(&quot;client_id&quot;, clientOptions.getClientId())</span>
+<span class="nc" id="L164">                    .add(&quot;client_assertion_type&quot;, &quot;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&quot;)</span>
+<span class="nc" id="L165">                    .add(&quot;client_assertion&quot;, signedJWT.serialize())</span>
+<span class="nc" id="L166">                    .add(&quot;refresh_token&quot;, clientOptions.getRefreshToken())</span>
+<span class="nc" id="L167">                    .build();</span>
+<span class="nc" id="L168">            Request req = new Request.Builder().url(tokenEndpoint).post(postBody).build();</span>
+<span class="nc" id="L169">            String response = httpClient.newCall(req).execute().body().string();</span>
+<span class="nc" id="L170">            JsonObject responseObject = parser.parse(response).getAsJsonObject();</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">            if (responseObject.has(&quot;error&quot;)) {</span>
+<span class="nc" id="L172">                JsonElement msg = responseObject.get(&quot;error_description&quot;);</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">                throw new ApiException((msg == null ? responseObject.get(&quot;error&quot;) : msg).getAsString());</span>
+            }
+<span class="nc" id="L175">            clientOptions.setAccessToken(responseObject.get(&quot;access_token&quot;).getAsString());</span>
+<span class="nc" id="L176">            JsonElement expiresIn = responseObject.get(&quot;expires_in&quot;);</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">            accessTokenExpiresAt = System.currentTimeMillis() + (expiresIn == null ? DEFAULT_ACCESS_TOKEN_VALIDITY : expiresIn.getAsLong()) * 1000;</span>
+<span class="nc" id="L178">            JsonElement refreshToken = responseObject.get(&quot;refresh_token&quot;);</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">            if (refreshToken != null) {</span>
+<span class="nc" id="L180">                clientOptions.setRefreshToken(refreshToken.getAsString());</span>
+            }
+<span class="nc" id="L182">        } catch (IOException | ParseException | JOSEException e) {</span>
+<span class="nc" id="L183">            throw new ApiException(e);</span>
+<span class="nc" id="L184">        }</span>
+<span class="nc" id="L185">    }</span>
+
+    private static JsonObject discoveredInfo(OkHttpClient httpClient, String authServer) throws IOException {
+<span class="nc" id="L188">        JsonObject config = discoveredConfigs.get(authServer);</span>
+<span class="nc bnc" id="L189" title="All 2 branches missed.">        if (config == null) {</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">            Request req = new Request.Builder().url(authServer + (authServer.endsWith(&quot;/&quot;) ? &quot;&quot; : &quot;/&quot;) +</span>
+<span class="nc" id="L191">                    &quot;.well-known/openid-configuration&quot;).get().build();</span>
+<span class="nc" id="L192">            String endpointsJson = httpClient.newCall(req).execute().body().string();</span>
+<span class="nc" id="L193">            config = parser.parse(endpointsJson).getAsJsonObject();</span>
+<span class="nc" id="L194">            discoveredConfigs.put(authServer, config);</span>
+        }
+<span class="nc" id="L196">        return config;</span>
+    }
+
+    private static X509Certificate loadCertificate(String certFilePath) throws CertificateException, FileNotFoundException {
+<span class="nc" id="L200">        CertificateFactory certificateFactory = CertificateFactory.getInstance(&quot;X.509&quot;);</span>
+<span class="nc" id="L201">        return (X509Certificate) certificateFactory.generateCertificate(new FileInputStream(certFilePath));</span>
+    }
+
+    private static PrivateKey loadPrivateKey(String keyFilePath)
+        throws IOException, ApiException, NoSuchAlgorithmException, InvalidKeySpecException {
+<span class="nc" id="L206">        FileReader reader = new FileReader(keyFilePath);</span>
+<span class="nc" id="L207">        PemReader pemReader = new PemReader(reader);</span>
+<span class="nc" id="L208">        PemObject pemObject = pemReader.readPemObject();</span>
+<span class="nc" id="L209">        String type = pemObject.getType();</span>
+<span class="nc" id="L210">        final String PRIVATE_KEY_TYPE_SUFFIX = &quot;PRIVATE KEY&quot;;</span>
+<span class="nc bnc" id="L211" title="All 2 branches missed.">        if (!type.endsWith(PRIVATE_KEY_TYPE_SUFFIX)) {</span>
+<span class="nc" id="L212">            throw new ApiException(&quot;Invalid key file content - expecting first line similar to\n&quot; +</span>
+                &quot;-----BEGIN RSA PRIVATE KEY-----&quot;);
+        }
+<span class="nc" id="L215">        String algorithm = type.replace(PRIVATE_KEY_TYPE_SUFFIX, &quot;&quot;).trim();</span>
+<span class="nc bnc" id="L216" title="All 4 branches missed.">        if (StringUtils.isNotBlank(algorithm) &amp;&amp; !&quot;RSA&quot;.equals(algorithm)) {</span>
+<span class="nc" id="L217">            throw new ApiException(&quot;Invalid algorithm for MTLS: &quot; + algorithm);</span>
+        }
+<span class="nc" id="L219">        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(pemObject.getContent());</span>
+<span class="nc" id="L220">        return generateRSAPrivateKey(keySpec);</span>
+    }
+
+    private static PrivateKey generateRSAPrivateKey(KeySpec keySpec)
+        throws NoSuchAlgorithmException, InvalidKeySpecException {
+<span class="nc" id="L225">        KeyFactory kf = KeyFactory.getInstance(&quot;RSA&quot;);</span>
+<span class="nc" id="L226">        return kf.generatePrivate(keySpec);</span>
+    }
+
+    private static OkHttpClient buildHttpClient(OkHttpClient httpClient,
+                                                X509Certificate rootCaCertificate,
+                                                HeldCertificate heldCertificate,
+                                                X509Certificate... intermediates) {
+<span class="nc" id="L233">        HandshakeCertificates.Builder builder = new HandshakeCertificates.Builder()</span>
+<span class="nc" id="L234">            .addPlatformTrustedCertificates().addTrustedCertificate(rootCaCertificate);</span>
+
+<span class="nc bnc" id="L236" title="All 2 branches missed.">        if (heldCertificate != null) {</span>
+<span class="nc" id="L237">            builder.heldCertificate(heldCertificate, intermediates);</span>
+        }
+
+<span class="nc" id="L240">        HandshakeCertificates handshakeCertificates = builder.build();</span>
+<span class="nc" id="L241">        SSLSocketFactory sslSocketFactory = handshakeCertificates.sslSocketFactory();</span>
+<span class="nc" id="L242">        X509TrustManager trustManager = handshakeCertificates.trustManager();</span>
+<span class="nc" id="L243">        return httpClient.newBuilder().sslSocketFactory(sslSocketFactory, trustManager).build();</span>
+    }
+
+    private void validateClientCertSettings() throws ApiException {
+<span class="nc" id="L247">        String rootCaFilePath = clientOptions.getRootCaFilePath();</span>
+<span class="nc" id="L248">        String certFilePath = clientOptions.getCertFilePath();</span>
+<span class="nc" id="L249">        String keyFilePath = clientOptions.getKeyFilePath();</span>
+<span class="nc bnc" id="L250" title="All 2 branches missed.">        if (StringUtils.isBlank(rootCaFilePath)) {</span>
+<span class="nc" id="L251">            throw new ApiException(&quot;Root CA path is not set&quot;);</span>
+        }
+<span class="nc bnc" id="L253" title="All 2 branches missed.">        if (StringUtils.isBlank(certFilePath)) {</span>
+<span class="nc" id="L254">            throw new ApiException(&quot;Client certificate path is not set&quot;);</span>
+        }
+<span class="nc bnc" id="L256" title="All 2 branches missed.">        if (StringUtils.isBlank(keyFilePath)) {</span>
+<span class="nc" id="L257">            throw new ApiException(&quot;Client key file path is not set&quot;);</span>
+        }
+<span class="nc" id="L259">        File rootCaFile = new File(rootCaFilePath);</span>
+<span class="nc" id="L260">        File certFile = new File(certFilePath);</span>
+<span class="nc" id="L261">        File keyFile = new File(keyFilePath);</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">        if (!rootCaFile.exists()) {</span>
+<span class="nc" id="L263">            throw new ApiException(&quot;Root CA file &quot; + rootCaFilePath + &quot; cannot be found&quot;);</span>
+        }
+<span class="nc bnc" id="L265" title="All 2 branches missed.">        if (!certFile.exists()) {</span>
+<span class="nc" id="L266">            throw new ApiException(&quot;Certificate file &quot; + certFilePath + &quot; cannot be found&quot;);</span>
+        }
+<span class="nc bnc" id="L268" title="All 2 branches missed.">        if (!keyFile.exists()) {</span>
+<span class="nc" id="L269">            throw new ApiException(&quot;Client key file &quot; + keyFilePath + &quot; cannot be found&quot;);</span>
+        }
+<span class="nc" id="L271">    }</span>
+
+    private static void setProxy(ApiClient apiClient, String proxy) throws ApiException {
+<span class="nc" id="L274">        OkHttpClient.Builder builder = apiClient.getHttpClient().newBuilder();</span>
+<span class="nc bnc" id="L275" title="All 2 branches missed.">        if (&quot;none&quot;.equalsIgnoreCase(proxy)) {</span>
+<span class="nc" id="L276">            builder.proxy(Proxy.NO_PROXY);</span>
+        } else {
+<span class="nc" id="L278">            String[] typeAndOther = proxy.split(&quot;//&quot;);</span>
+<span class="nc bnc" id="L279" title="All 2 branches missed.">            if (typeAndOther.length != 2) {</span>
+<span class="nc" id="L280">                printProxyExamples();</span>
+<span class="nc" id="L281">                throw new ApiException(&quot;Invalid proxy, please double check it.&quot;);</span>
+            }
+<span class="nc bnc" id="L283" title="All 2 branches missed.">            if (!VALID_PROXY_TYPES.contains(typeAndOther[0].toUpperCase())) {</span>
+<span class="nc" id="L284">                printProxyExamples();</span>
+<span class="nc" id="L285">                throw new ApiException(&quot;Invalid proxy, please double check it.&quot;);</span>
+            }
+<span class="nc" id="L287">            String[] authAndOther = typeAndOther[1].split(&quot;@&quot;);</span>
+<span class="nc bnc" id="L288" title="All 2 branches missed.">            if (authAndOther.length &gt; 2) {</span>
+<span class="nc" id="L289">                printProxyExamples();</span>
+<span class="nc" id="L290">                throw new ApiException(&quot;Invalid proxy, please double check it.&quot;);</span>
+            }
+<span class="nc" id="L292">            String[] hostAndPort = authAndOther[authAndOther.length - 1].split(&quot;:&quot;);</span>
+<span class="nc bnc" id="L293" title="All 2 branches missed.">            if (hostAndPort.length != 2) {</span>
+<span class="nc" id="L294">                printProxyExamples();</span>
+<span class="nc" id="L295">                throw new ApiException(&quot;Invalid proxy, please double check it.&quot;);</span>
+            }
+<span class="nc" id="L297">            String host = hostAndPort[0];</span>
+<span class="nc" id="L298">            String port = hostAndPort[1];</span>
+<span class="nc bnc" id="L299" title="All 2 branches missed.">            if (!port.matches(&quot;[1-9]\\d*&quot;)) {</span>
+<span class="nc" id="L300">                printProxyExamples();</span>
+<span class="nc" id="L301">                throw new ApiException(&quot;Invalid proxy, please double check it.&quot;);</span>
+            }
+<span class="nc" id="L303">            int portNumber = Integer.parseInt(port);</span>
+<span class="nc" id="L304">            builder.proxy(new Proxy(getProxyType(typeAndOther[0]), new InetSocketAddress(host, portNumber)));</span>
+<span class="nc bnc" id="L305" title="All 2 branches missed.">            if (authAndOther.length &gt; 1) {</span>
+<span class="nc" id="L306">                String[] userAndPass = authAndOther[0].split(&quot;:&quot;, 2);</span>
+<span class="nc bnc" id="L307" title="All 2 branches missed.">                if (userAndPass.length != 2) {</span>
+<span class="nc" id="L308">                    printProxyExamples();</span>
+<span class="nc" id="L309">                    throw new ApiException(&quot;Invalid proxy, please double check it.&quot;);</span>
+                }
+<span class="nc" id="L311">                okhttp3.Authenticator proxyAuthenticator = (route, response) -&gt; {</span>
+<span class="nc" id="L312">                    String credential = Credentials.basic(userAndPass[0], userAndPass[1]);</span>
+<span class="nc" id="L313">                    return response.request().newBuilder()</span>
+<span class="nc" id="L314">                        .header(&quot;Proxy-Authorization&quot;, credential)</span>
+<span class="nc" id="L315">                        .build();</span>
+                };
+<span class="nc" id="L317">                builder.proxyAuthenticator(proxyAuthenticator);</span>
+            }
+        }
+<span class="nc" id="L320">        apiClient.setHttpClient(builder.build());</span>
+<span class="nc" id="L321">    }</span>
+
+    private static Proxy.Type getProxyType(String type) {
+<span class="nc bnc" id="L324" title="All 2 branches missed.">        if (type.equalsIgnoreCase(&quot;socks:&quot;)) {</span>
+<span class="nc" id="L325">            return Proxy.Type.SOCKS;</span>
+        }
+<span class="nc" id="L327">        return Proxy.Type.HTTP;</span>
+    }
+
+    private static void printProxyExamples() {
+<span class="nc" id="L331">        LOGGER.info(&quot;Valid proxy examples:&quot;);</span>
+<span class="nc" id="L332">        LOGGER.info(&quot;http://http.proxy:8080&quot;);</span>
+<span class="nc" id="L333">        LOGGER.info(&quot;https://https.proxy:8443&quot;);</span>
+<span class="nc" id="L334">        LOGGER.info(&quot;socks://socks.proxy:5500&quot;);</span>
+<span class="nc" id="L335">        LOGGER.info(&quot;http://user:pass@http.proxy:8080&quot;);</span>
+<span class="nc" id="L336">        LOGGER.info(&quot;https://user:pass@https.proxy:8443&quot;);</span>
+<span class="nc" id="L337">        LOGGER.info(&quot;socks://user:pass@socks.proxy:5500&quot;);</span>
+<span class="nc" id="L338">    }</span>
+
+    private static boolean isValidUrl(String url) {
+<span class="nc" id="L341">        String lowerCaseUrl = url.toLowerCase();</span>
+<span class="nc bnc" id="L342" title="All 4 branches missed.">        if (!lowerCaseUrl.startsWith(&quot;https://&quot;) &amp;&amp; !lowerCaseUrl.startsWith(&quot;http://&quot;)) {</span>
+<span class="nc" id="L343">            LOGGER.error(&quot;Invalid scheme specified for server url, only https:// and http:// are supported&quot;);</span>
+<span class="nc" id="L344">            return false;</span>
+        }
+        try {
+<span class="nc" id="L347">            new URL(url);</span>
+<span class="nc" id="L348">            LOGGER.trace(&quot;Server URL of {} passes validation&quot;, url);</span>
+<span class="nc" id="L349">            return true;</span>
+<span class="nc" id="L350">        } catch (MalformedURLException e) {</span>
+<span class="nc" id="L351">            LOGGER.error(&quot;Specified URL of {} is malformed and exception caught: {}&quot;, url, e.getMessage());</span>
+<span class="nc" id="L352">            return false;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

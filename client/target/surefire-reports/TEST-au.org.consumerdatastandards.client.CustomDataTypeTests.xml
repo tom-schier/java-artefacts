@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.347" tests="53" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\_codeRepos\java-artefacts\client\target\test-classes;D:\_codeRepos\java-artefacts\client\target\classes;C:\Users\tomas\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.5.6\spring-boot-starter-logging-2.5.6.jar;C:\Users\tomas\.m2\repository\ch\qos\logback\logback-classic\1.2.6\logback-classic-1.2.6.jar;C:\Users\tomas\.m2\repository\ch\qos\logback\logback-core\1.2.6\logback-core-1.2.6.jar;C:\Users\tomas\.m2\repository\org\slf4j\slf4j-api\1.7.32\slf4j-api-1.7.32.jar;C:\Users\tomas\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.14.1\log4j-to-slf4j-2.14.1.jar;C:\Users\tomas\.m2\repository\org\apache\logging\log4j\log4j-api\2.14.1\log4j-api-2.14.1.jar;C:\Users\tomas\.m2\repository\org\slf4j\jul-to-slf4j\1.7.32\jul-to-slf4j-1.7.32.jar;C:\Users\tomas\.m2\repository\com\squareup\okhttp3\okhttp\3.14.4\okhttp-3.14.4.jar;C:\Users\tomas\.m2\repository\com\squareup\okio\okio\1.17.2\okio-1.17.2.jar;C:\Users\tomas\.m2\repository\com\squareup\okhttp3\logging-interceptor\3.14.4\logging-interceptor-3.14.4.jar;C:\Users\tomas\.m2\repository\com\squareup\okhttp3\okhttp-tls\3.14.4\okhttp-tls-3.14.4.jar;C:\Users\tomas\.m2\repository\org\bouncycastle\bcprov-jdk15on\1.70\bcprov-jdk15on-1.70.jar;C:\Users\tomas\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\tomas\.m2\repository\io\gsonfire\gson-fire\1.8.3\gson-fire-1.8.3.jar;C:\Users\tomas\.m2\repository\org\apache\commons\commons-lang3\3.8.1\commons-lang3-3.8.1.jar;C:\Users\tomas\.m2\repository\com\nimbusds\nimbus-jose-jwt\8.2.1\nimbus-jose-jwt-8.2.1.jar;C:\Users\tomas\.m2\repository\com\github\stephenc\jcip\jcip-annotations\1.0-1\jcip-annotations-1.0-1.jar;C:\Users\tomas\.m2\repository\net\minidev\json-smart\2.3\json-smart-2.3.jar;C:\Users\tomas\.m2\repository\net\minidev\accessors-smart\1.2\accessors-smart-1.2.jar;C:\Users\tomas\.m2\repository\org\ow2\asm\asm\5.0.4\asm-5.0.4.jar;C:\Users\tomas\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.0\junit-jupiter-api-5.5.0.jar;C:\Users\tomas\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\tomas\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\tomas\.m2\repository\org\junit\platform\junit-platform-commons\1.5.0\junit-platform-commons-1.5.0.jar;C:\Users\tomas\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.0\junit-jupiter-engine-5.5.0.jar;C:\Users\tomas\.m2\repository\org\junit\platform\junit-platform-engine\1.5.0\junit-platform-engine-1.5.0.jar;C:\Users\tomas\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.5.0\junit-jupiter-params-5.5.0.jar;"/>
+    <property name="java.vm.vendor" value="Temurin"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Australia/Sydney"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="AU"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="D:\Java\Eclipse\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\tomas\AppData\Local\Temp\surefire3463055421271386916\surefirebooter2954730716247086156.jar C:\Users\tomas\AppData\Local\Temp\surefire3463055421271386916 2022-06-17T09-44-55_604-jvmRun1 surefire7917491701106998016tmp surefire_05666585992951476055tmp"/>
+    <property name="surefire.test.class.path" value="D:\_codeRepos\java-artefacts\client\target\test-classes;D:\_codeRepos\java-artefacts\client\target\classes;C:\Users\tomas\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.5.6\spring-boot-starter-logging-2.5.6.jar;C:\Users\tomas\.m2\repository\ch\qos\logback\logback-classic\1.2.6\logback-classic-1.2.6.jar;C:\Users\tomas\.m2\repository\ch\qos\logback\logback-core\1.2.6\logback-core-1.2.6.jar;C:\Users\tomas\.m2\repository\org\slf4j\slf4j-api\1.7.32\slf4j-api-1.7.32.jar;C:\Users\tomas\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.14.1\log4j-to-slf4j-2.14.1.jar;C:\Users\tomas\.m2\repository\org\apache\logging\log4j\log4j-api\2.14.1\log4j-api-2.14.1.jar;C:\Users\tomas\.m2\repository\org\slf4j\jul-to-slf4j\1.7.32\jul-to-slf4j-1.7.32.jar;C:\Users\tomas\.m2\repository\com\squareup\okhttp3\okhttp\3.14.4\okhttp-3.14.4.jar;C:\Users\tomas\.m2\repository\com\squareup\okio\okio\1.17.2\okio-1.17.2.jar;C:\Users\tomas\.m2\repository\com\squareup\okhttp3\logging-interceptor\3.14.4\logging-interceptor-3.14.4.jar;C:\Users\tomas\.m2\repository\com\squareup\okhttp3\okhttp-tls\3.14.4\okhttp-tls-3.14.4.jar;C:\Users\tomas\.m2\repository\org\bouncycastle\bcprov-jdk15on\1.70\bcprov-jdk15on-1.70.jar;C:\Users\tomas\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\tomas\.m2\repository\io\gsonfire\gson-fire\1.8.3\gson-fire-1.8.3.jar;C:\Users\tomas\.m2\repository\org\apache\commons\commons-lang3\3.8.1\commons-lang3-3.8.1.jar;C:\Users\tomas\.m2\repository\com\nimbusds\nimbus-jose-jwt\8.2.1\nimbus-jose-jwt-8.2.1.jar;C:\Users\tomas\.m2\repository\com\github\stephenc\jcip\jcip-annotations\1.0-1\jcip-annotations-1.0-1.jar;C:\Users\tomas\.m2\repository\net\minidev\json-smart\2.3\json-smart-2.3.jar;C:\Users\tomas\.m2\repository\net\minidev\accessors-smart\1.2\accessors-smart-1.2.jar;C:\Users\tomas\.m2\repository\org\ow2\asm\asm\5.0.4\asm-5.0.4.jar;C:\Users\tomas\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.0\junit-jupiter-api-5.5.0.jar;C:\Users\tomas\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\tomas\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\tomas\.m2\repository\org\junit\platform\junit-platform-commons\1.5.0\junit-platform-commons-1.5.0.jar;C:\Users\tomas\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.0\junit-jupiter-engine-5.5.0.jar;C:\Users\tomas\.m2\repository\org\junit\platform\junit-platform-engine\1.5.0\junit-platform-engine-1.5.0.jar;C:\Users\tomas\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.5.0\junit-jupiter-params-5.5.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\tomas"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="D:\Java\Eclipse\jre"/>
+    <property name="basedir" value="D:\_codeRepos\java-artefacts\client"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\tomas\AppData\Local\Temp\surefire3463055421271386916\surefirebooter2954730716247086156.jar;C:\\Users\\tomas\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.4\\org.jacoco.agent-0.8.4-runtime.jar"/>
+    <property name="sun.boot.class.path" value="D:\Java\Eclipse\jre\lib\resources.jar;D:\Java\Eclipse\jre\lib\rt.jar;D:\Java\Eclipse\jre\lib\sunrsasign.jar;D:\Java\Eclipse\jre\lib\jsse.jar;D:\Java\Eclipse\jre\lib\jce.jar;D:\Java\Eclipse\jre\lib\charsets.jar;D:\Java\Eclipse\jre\lib\jfr.jar;D:\Java\Eclipse\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_312-b07"/>
+    <property name="user.name" value="tomas"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="D:\Java\Eclipse\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\tomas\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\tomas\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_312"/>
+    <property name="user.dir" value="D:\_codeRepos\java-artefacts\client"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="D:\Java\Eclipse\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\_codeRepos\dsb-type-definitions-node-test\node_modules\.bin;D:\Java\Eclipse\bin;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\Python39\Scripts\;C:\Python39\;C:\Program Files\Java\jdk1.8.0_271\bin;C:\Users\tomas\AppData\Roaming\npm;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\kaitai-struct-compiler\bin;C:\Program Files\Git\cmd;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Gradle\gradle-6.7.1\bin;D:\AndoidSDK\platform-tools;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Programs\apache-maven-3.8.1\bin;node_modules;C:\Program Files\Microsoft\Azure Functions Core Tools\;C:\Users\tomas\AppData\Roaming\nvm;C:\Program Files\Amazon\AWSCLIV2\;C:\Python39\Scripts\;C:\Python39\;C:\Program File;C:\Users\tomas\AppData\Roaming\nvm;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Users\tomas\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Python39\Scripts\;C:\Python39\;C:\Program Files\Java\jdk1.8.0_271\bin\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet\;C:\Program Files\Process Lasso\;C:\Program Files (x86)\kaitai-struct-compiler\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\dotnet\;C:\Users\tomas\.windows-build-tools\python27\;C:\Users\tomas\AppData\Roaming\npm\node_modules\npm\node_modules\npm-lifecycle\node-gyp-bin;C:\Users\tomas\AppData\Roaming\npm\node_modules\windows-build-tools\node_modules\.bin;C:\Users\tomas\AppData\Roaming\npm\node_modules\.bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Windows;C:\Windows\System32;C:\Windows\System32\OpenSSH;C:\Users\tomas\.azure-kubectl;C:\Program Files (x86)\GnuWin32\bin;C:\Users\tomas\.dotnet\tools;C:\Users\tomas\AppData\Local\Microsoft\WindowsApps;D:\Programs\PyCharm Community Edition 2020.3.5\bin;C:\Users\tomas\AppData\Roaming\nvm;C:\Python39;C:\Users\tomas\AppData\Local\Programs\Fiddler;C:\Users\tomas\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\tomas\.dotnet\tools;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Temurin"/>
+    <property name="java.vm.version" value="25.312-b07"/>
+    <property name="java.ext.dirs" value="D:\Java\Eclipse\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="invalidASCIIString{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.09"/>
+  <testcase name="invalidASCIIString{String}[2]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="invalidASCIIString{String}[3]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+  <testcase name="invalidASCIIString{String}[4]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+  <testcase name="validAmountString{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="validAmountString{String}[2]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validAmountString{String}[3]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validAmountString{String}[4]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validAmountString{String}[5]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+  <testcase name="validUnicodeString{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validUnicodeString{String}[2]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validUnicodeString{String}[3]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validUnicodeString{String}[4]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+  <testcase name="validUnicodeString{String}[5]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="validRates{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="validRates{String}[2]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validRates{String}[3]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="validRates{String}[4]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="validRates{String}[5]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validRates{String}[6]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.003"/>
+  <testcase name="invalidRates{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidRates{String}[2]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidRates{String}[3]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidRates{String}[4]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidRates{String}[5]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidRates{String}[6]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidRates{String}[7]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="invalidRates{String}[8]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidRates{String}[9]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="invalidUnicodeString{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="validASCIIString{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validASCIIString{String}[2]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validASCIIString{String}[3]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validASCIIString{String}[4]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validASCIIString{String}[5]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validDurations{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.003"/>
+  <testcase name="validDurations{String}[2]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="validDurations{String}[3]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validDurations{String}[4]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validDurations{String}[5]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validDurations{String}[6]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="validDurations{String}[7]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+  <testcase name="validDurations{String}[8]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidAmountString{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidAmountString{String}[2]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidAmountString{String}[3]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidAmountString{String}[4]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+  <testcase name="invalidAmountString{String}[5]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.001"/>
+  <testcase name="invalidAmountString{String}[6]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+  <testcase name="invalidDurations{String}[1]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+  <testcase name="invalidDurations{String}[2]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+  <testcase name="invalidDurations{String}[3]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0.002"/>
+  <testcase name="invalidDurations{String}[4]" classname="au.org.consumerdatastandards.client.CustomDataTypeTests" time="0"/>
+</testsuite>

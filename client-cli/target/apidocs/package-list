@@ -1,0 +1,5 @@
+au.org.consumerdatastandards.client.cli
+au.org.consumerdatastandards.client.cli.auth
+au.org.consumerdatastandards.client.cli.auth.service
+au.org.consumerdatastandards.client.cli.banking
+au.org.consumerdatastandards.client.cli.support

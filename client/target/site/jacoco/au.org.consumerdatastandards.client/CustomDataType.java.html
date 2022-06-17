@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomDataType.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Client Library</a> &gt; <a href="index.source.html" class="el_package">au.org.consumerdatastandards.client</a> &gt; <span class="el_source">CustomDataType.java</span></div><h1>CustomDataType.java</h1><pre class="source lang-java linenums">package au.org.consumerdatastandards.client;
+
+<span class="fc" id="L3">public enum CustomDataType {</span>
+<span class="fc" id="L4">    DateTime(&quot;DateTimeString&quot;, Format.DATE_TIME),</span>
+<span class="fc" id="L5">    Date(&quot;DateString&quot;, Format.DATE),</span>
+<span class="fc" id="L6">    Duration(&quot;DurationString&quot;, &quot;P(?:(\\d+(?:[\\.,]\\d+)?W)|(\\d+(?:[\\.,]\\d+)?Y)?(\\d+(?:[\\.,]\\d+)?M)?(\\d+(?:[\\.,]\\d+)?D)?(?:T(\\d+(?:[\\.,]\\d+)?H)?(\\d+(?:[\\.,]\\d+)?M)?(\\d+(?:[\\.,]\\d+)?S)?)?)&quot;),</span>
+<span class="fc" id="L7">    MaskedPAN(&quot;MaskedPANString&quot;),</span>
+<span class="fc" id="L8">    MaskedAccount(&quot;MaskedAccountString&quot;),</span>
+<span class="fc" id="L9">    NaturalNumber(&quot;NaturalNumber&quot;, 0, Integer.MAX_VALUE),</span>
+<span class="fc" id="L10">    ASCII(&quot;ASCIIString&quot;, &quot;\\p{Print}*&quot;),</span>
+<span class="fc" id="L11">    Unicode(&quot;UnicodeString&quot;, &quot;(\\p{L}|\\p{Print})*&quot;),</span>
+<span class="fc" id="L12">    PositiveInteger(&quot;PositiveInteger&quot;, 1, Integer.MAX_VALUE),</span>
+<span class="fc" id="L13">    NegativeInteger(&quot;NegativeInteger&quot;, Integer.MIN_VALUE, 0),</span>
+<span class="fc" id="L14">    Rate(&quot;RateString&quot;, &quot;^\\-?(0|1){1}(\\.(\\d){1,16}){0,1}$&quot;, -1, 1),</span>
+<span class="fc" id="L15">    Amount(&quot;AmountString&quot;, &quot;^\\-?([1-9](\\d){0,15}|0)\\.(\\d){2,}$&quot;),</span>
+<span class="fc" id="L16">    Currency(&quot;CurrencyString&quot;, &quot;^(AED|AFN|ALL|AMD|ANG|AOA|ARS|AUD|AWG|AZN|BAM|BBD|BDT|BGN|BHD|BIF|BMD|BND|BOB|BOV|BRL|BSD|BTN|BWP|BYN|BZD|CAD|CDF|CHE|CHF|CHW|CLF|CLP|CNY|COP|COU|CRC|CUC|CUP|CVE|CZK|DJF|DKK|DOP|DZD|EGP|ERN|ETB|EUR|FJD|FKP|GBP|GEL|GHS|GIP|GMD|GNF|GTQ|GYD|HKD|HNL|HRK|HTG|HUF|IDR|ILS|INR|IQD|IRR|ISK|JMD|JOD|JPY|KES|KGS|KHR|KMF|KPW|KRW|KWD|KYD|KZT|LAK|LBP|LKR|LRD|LSL|LYD|MAD|MDL|MGA|MKD|MMK|MNT|MOP|MRU|MUR|MVR|MWK|MXN|MXV|MYR|MZN|NAD|NGN|NIO|NOK|NPR|NZD|OMR|PAB|PEN|PGK|PHP|PKR|PLN|PYG|QAR|RON|RSD|RUB|RWF|SAR|SBD|SCR|SDG|SEK|SGD|SHP|SLL|SOS|SRD|SSP|STN|SVC|SYP|SZL|THB|TJS|TMT|TND|TOP|TRY|TTD|TWD|TZS|UAH|UGX|USD|USN|UYI|UYU|UYW|UZS|VES|VND|VUV|WST|XAF|XAG|XAU|XBA|XBB|XBC|XBD|XCD|XDR|XOF|XPD|XPF|XPT|XSU|XTS|XUA|XXX|YER|ZAR|ZMW|ZWL)$&quot;),</span>
+<span class="fc" id="L17">    URI(&quot;URIString&quot;, Format.URI),</span>
+<span class="fc" id="L18">    Boolean(&quot;Boolean&quot;),</span>
+<span class="fc" id="L19">    ExternalRef(&quot;ExternalRef&quot;),</span>
+<span class="fc" id="L20">    Base64(&quot;Base64&quot;),</span>
+<span class="fc" id="L21">    IPAddress(&quot;IPAddress&quot;,&quot;\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}\\b&quot;),</span>
+<span class="fc" id="L22">    UUID(&quot;UUID&quot;);</span>
+
+<span class="fc" id="L24">    CustomDataType(String name) {</span>
+<span class="fc" id="L25">        this.name = name;</span>
+<span class="fc" id="L26">    }</span>
+
+<span class="fc" id="L28">    CustomDataType(String name, Format format) {</span>
+<span class="fc" id="L29">        this.name = name;</span>
+<span class="fc" id="L30">        this.format = format;</span>
+<span class="fc" id="L31">    }</span>
+
+<span class="fc" id="L33">    CustomDataType(String name, String pattern) {</span>
+<span class="fc" id="L34">        this.name = name;</span>
+<span class="fc" id="L35">        this.pattern = pattern;</span>
+<span class="fc" id="L36">    }</span>
+
+<span class="fc" id="L38">    CustomDataType(String name, Number min, Number max) {</span>
+<span class="fc" id="L39">        this.name = name;</span>
+<span class="fc" id="L40">        this.min = min;</span>
+<span class="fc" id="L41">        this.max = max;</span>
+<span class="fc" id="L42">    }</span>
+
+    private String name;
+
+    private Format format;
+
+    private String pattern;
+
+    private Number min;
+
+    private Number max;
+
+    CustomDataType(String name, String pattern, Number min, Number max) {
+<span class="fc" id="L55">        this(name, min, max);</span>
+<span class="fc" id="L56">        this.pattern = pattern;</span>
+<span class="fc" id="L57">    }</span>
+
+    public Format getFormat() {
+<span class="nc" id="L60">        return format;</span>
+    }
+
+    public String getPattern() {
+<span class="fc" id="L64">        return pattern;</span>
+    }
+
+    public Number getMin() {
+<span class="fc" id="L68">        return min;</span>
+    }
+
+    public Number getMax() {
+<span class="fc" id="L72">        return max;</span>
+    }
+
+    public String getName() {
+<span class="nc" id="L76">        return name;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

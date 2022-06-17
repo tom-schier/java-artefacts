@@ -38,7 +38,7 @@ Navigate to the project folder and execute
 
 or, if you want to skip the Docker image build step:
 
-    mvn install -Ddockerfile.skip=true --projects !integration-test
+    mvn install -D dockerfile.skip=true --projects !integration-test
 
 The `--projects !integration-test` parameter skips running of the integration tests.
 You can ommit this parameter if you've built the current version of the project once before and

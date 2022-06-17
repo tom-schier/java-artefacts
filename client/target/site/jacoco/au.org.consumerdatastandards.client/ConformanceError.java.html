@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConformanceError.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Client Library</a> &gt; <a href="index.source.html" class="el_package">au.org.consumerdatastandards.client</a> &gt; <span class="el_source">ConformanceError.java</span></div><h1>ConformanceError.java</h1><pre class="source lang-java linenums">package au.org.consumerdatastandards.client;
+
+import org.apache.commons.lang3.StringUtils;
+
+<span class="nc" id="L5">public class ConformanceError {</span>
+
+    private String dataJson;
+
+    private Type errorType;
+
+    private String errorField;
+
+    private String message;
+
+    public ConformanceError dataJson(String dataJson) {
+<span class="nc" id="L16">        this.dataJson = dataJson;</span>
+<span class="nc" id="L17">        return this;</span>
+    }
+
+    public ConformanceError errorType(Type errorType) {
+<span class="nc" id="L21">        this.errorType = errorType;</span>
+<span class="nc" id="L22">        return this;</span>
+    }
+
+    public ConformanceError errorField(String errorField) {
+<span class="nc" id="L26">        this.errorField = errorField;</span>
+<span class="nc" id="L27">        return this;</span>
+    }
+
+    public ConformanceError errorMessage(String message) {
+<span class="nc" id="L31">        this.message = message;</span>
+<span class="nc" id="L32">        return this;</span>
+    }
+
+    public String getDescription() {
+<span class="nc bnc" id="L36" title="All 4 branches missed.">        switch (errorType) {</span>
+            case MISSING_VALUE:
+<span class="nc" id="L38">                return String.format(&quot;Required field '%s' has null value in\n%s&quot;,</span>
+                        errorField, dataJson);
+            case MISSING_PROPERTY:
+<span class="nc" id="L41">                return String.format(&quot;Required field '%s' is missing in response&quot;, errorField);</span>
+            case BROKEN_CONSTRAINT:
+            case REDUNDANT_VALUE:
+<span class="nc" id="L44">                return String.format(&quot;%s.&quot;, message);</span>
+            default:
+<span class="nc bnc" id="L46" title="All 2 branches missed.">                if (!StringUtils.isBlank(message)) return message;</span>
+<span class="nc" id="L47">                else return &quot;Unknown error&quot;;</span>
+        }
+    }
+
+<span class="nc" id="L51">    public enum Type {</span>
+<span class="nc" id="L52">        MISSING_HEADER,</span>
+<span class="nc" id="L53">        INCORRECT_HEADER_VALUE,</span>
+<span class="nc" id="L54">        MISSING_PROPERTY,</span>
+<span class="nc" id="L55">        MISSING_VALUE,</span>
+<span class="nc" id="L56">        REDUNDANT_VALUE,</span>
+<span class="nc" id="L57">        BROKEN_CONSTRAINT,</span>
+<span class="nc" id="L58">        DATA_NOT_MATCHING_CRITERIA</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

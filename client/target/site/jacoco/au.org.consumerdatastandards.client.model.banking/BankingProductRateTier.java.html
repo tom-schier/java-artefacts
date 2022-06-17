@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BankingProductRateTier.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Client Library</a> &gt; <a href="index.source.html" class="el_package">au.org.consumerdatastandards.client.model.banking</a> &gt; <span class="el_source">BankingProductRateTier.java</span></div><h1>BankingProductRateTier.java</h1><pre class="source lang-java linenums">package au.org.consumerdatastandards.client.model.banking;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.math.BigDecimal;
+import java.util.Objects;
+
+/**
+ * Defines the criteria and conditions for which a rate applies
+ */
+<span class="nc" id="L11">public abstract class BankingProductRateTier {</span>
+
+    private String name;
+
+    private UnitOfMeasure unitOfMeasure;
+
+    private BigDecimal minimumValue;
+
+    private BigDecimal maximumValue;
+
+    private RateApplicationMethod rateApplicationMethod;
+
+    private BankingProductRateCondition applicabilityConditions;
+
+    /**
+     * A display name for the tier
+     * @return name
+     */
+    public String getName() {
+<span class="nc" id="L30">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L34">        this.name = name;</span>
+<span class="nc" id="L35">    }</span>
+
+    /**
+     * The unit of measure that applies to the tierValueMinimum and tierValueMaximum values e.g. a **DOLLAR** amount. **PERCENT** (in the case of loan-to-value ratio or LVR). Tier term period representing a discrete number of **MONTH**'s or **DAY**'s (in the case of term deposit tiers)
+     * @return unitOfMeasure
+     */
+    public UnitOfMeasure getUnitOfMeasure() {
+<span class="nc" id="L42">        return unitOfMeasure;</span>
+    }
+
+    public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
+<span class="nc" id="L46">        this.unitOfMeasure = unitOfMeasure;</span>
+<span class="nc" id="L47">    }</span>
+
+    /**
+     * The number of tierUnitOfMeasure units that form the lower bound of the tier. The tier should be inclusive of this value
+     * @return minimumValue
+     */
+    public BigDecimal getMinimumValue() {
+<span class="nc" id="L54">        return minimumValue;</span>
+    }
+
+    public void setMinimumValue(BigDecimal minimumValue) {
+<span class="nc" id="L58">        this.minimumValue = minimumValue;</span>
+<span class="nc" id="L59">    }</span>
+
+    /**
+     * The number of tierUnitOfMeasure units that form the upper bound of the tier or band. For a tier with a discrete value (as opposed to a range of values e.g. 1 month) this must be the same as tierValueMinimum. Where this is the same as the tierValueMinimum value of the next-higher tier the referenced tier should be exclusive of this value. For example a term deposit of 2 months falls into the upper tier of the following tiers: (1 – 2 months, 2 – 3 months). If absent the tier's range has no upper bound.
+     * @return maximumValue
+     */
+    public BigDecimal getMaximumValue() {
+<span class="nc" id="L66">        return maximumValue;</span>
+    }
+
+    public void setMaximumValue(BigDecimal maximumValue) {
+<span class="nc" id="L70">        this.maximumValue = maximumValue;</span>
+<span class="nc" id="L71">    }</span>
+
+    /**
+     * The method used to calculate the amount to be applied using one or more tiers. A single rate may be applied to the entire balance or each applicable tier rate is applied to the portion of the balance that falls into that tier (referred to as 'bands' or 'steps')
+     * @return rateApplicationMethod
+     */
+    public RateApplicationMethod getRateApplicationMethod() {
+<span class="nc" id="L78">        return rateApplicationMethod;</span>
+    }
+
+    public void setRateApplicationMethod(RateApplicationMethod rateApplicationMethod) {
+<span class="nc" id="L82">        this.rateApplicationMethod = rateApplicationMethod;</span>
+<span class="nc" id="L83">    }</span>
+
+    /**
+     * Get applicabilityConditions
+     * @return applicabilityConditions
+     */
+    public BankingProductRateCondition getApplicabilityConditions() {
+<span class="nc" id="L90">        return applicabilityConditions;</span>
+    }
+
+    public void setApplicabilityConditions(BankingProductRateCondition applicabilityConditions) {
+<span class="nc" id="L94">        this.applicabilityConditions = applicabilityConditions;</span>
+<span class="nc" id="L95">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L100">            return true;</span>
+        }
+<span class="nc bnc" id="L102" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L103">            return false;</span>
+        }
+<span class="nc" id="L105">        BankingProductRateTier bankingProductRateTier = (BankingProductRateTier) o;</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">        return Objects.equals(this.name, bankingProductRateTier.name) &amp;&amp;</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            Objects.equals(this.unitOfMeasure, bankingProductRateTier.unitOfMeasure) &amp;&amp;</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">            Objects.equals(this.minimumValue, bankingProductRateTier.minimumValue) &amp;&amp;</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">            Objects.equals(this.maximumValue, bankingProductRateTier.maximumValue) &amp;&amp;</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">            Objects.equals(this.rateApplicationMethod, bankingProductRateTier.rateApplicationMethod) &amp;&amp;</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">            Objects.equals(this.applicabilityConditions, bankingProductRateTier.applicabilityConditions);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L116">        return Objects.hash(</span>
+            name,
+            unitOfMeasure,
+            minimumValue,
+            maximumValue,
+            rateApplicationMethod,
+            applicabilityConditions);
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L127">        StringWriter sw = new StringWriter();</span>
+<span class="nc" id="L128">        PrintWriter pw = new PrintWriter(sw);</span>
+<span class="nc" id="L129">        pw.print(&quot;class &quot;); pw.print(getClass().getSimpleName()); pw.println(&quot; {&quot;);</span>
+<span class="nc" id="L130">        writeProperties(pw);</span>
+<span class="nc" id="L131">        pw.print(&quot;}&quot;);</span>
+<span class="nc" id="L132">        return sw.toString();</span>
+    }
+
+    protected void writeProperties(PrintWriter pw) {
+<span class="nc" id="L136">        pw.print(&quot;   name: &quot;); pw.println(toIndentedString(name));</span>
+<span class="nc" id="L137">        pw.print(&quot;   unitOfMeasure: &quot;); pw.println(toIndentedString(unitOfMeasure));</span>
+<span class="nc" id="L138">        pw.print(&quot;   minimumValue: &quot;); pw.println(toIndentedString(minimumValue));</span>
+<span class="nc" id="L139">        pw.print(&quot;   maximumValue: &quot;); pw.println(toIndentedString(maximumValue));</span>
+<span class="nc" id="L140">        pw.print(&quot;   rateApplicationMethod: &quot;); pw.println(toIndentedString(rateApplicationMethod));</span>
+<span class="nc" id="L141">        pw.print(&quot;   applicabilityConditions: &quot;); pw.println(toIndentedString(applicabilityConditions));</span>
+<span class="nc" id="L142">    }</span>
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    protected String toIndentedString(Object o) {
+<span class="nc bnc" id="L149" title="All 2 branches missed.">        if (o == null) {</span>
+<span class="nc" id="L150">            return &quot;null&quot;;</span>
+        }
+<span class="nc" id="L152">        return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+    }
+
+<span class="nc" id="L155">    public enum UnitOfMeasure {</span>
+<span class="nc" id="L156">        DOLLAR,</span>
+<span class="nc" id="L157">        PERCENT,</span>
+<span class="nc" id="L158">        DAY,</span>
+<span class="nc" id="L159">        MONTH</span>
+    }
+
+<span class="nc" id="L162">    public enum RateApplicationMethod {</span>
+<span class="nc" id="L163">        PER_TIER,</span>
+<span class="nc" id="L164">        WHOLE_BALANCE</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

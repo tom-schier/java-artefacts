@@ -1,0 +1,16 @@
+au.org.consumerdatastandards.holder
+au.org.consumerdatastandards.holder.api
+au.org.consumerdatastandards.holder.api.banking
+au.org.consumerdatastandards.holder.api.energy
+au.org.consumerdatastandards.holder.configuration
+au.org.consumerdatastandards.holder.converter
+au.org.consumerdatastandards.holder.model
+au.org.consumerdatastandards.holder.model.banking
+au.org.consumerdatastandards.holder.model.energy
+au.org.consumerdatastandards.holder.repository
+au.org.consumerdatastandards.holder.repository.banking
+au.org.consumerdatastandards.holder.repository.energy
+au.org.consumerdatastandards.holder.service
+au.org.consumerdatastandards.holder.service.banking
+au.org.consumerdatastandards.holder.service.energy
+au.org.consumerdatastandards.holder.util

@@ -1,0 +1,239 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingScheduledPaymentsAPI,556,0,6,0,82,0,21,0,18,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.GetProductDetailReturnTypeResolver,31,0,4,0,6,0,4,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingDirectDebitsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingDirectDebitsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.ListProductsReturnTypeResolver.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.ListProductsReturnTypeResolver.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.ListProductsReturnTypeResolver.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingDirectDebitsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingDirectDebitsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingDirectDebitsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingDirectDebitsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingPayeesAPI,293,0,4,0,54,0,15,0,13,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingScheduledPaymentsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingScheduledPaymentsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingScheduledPaymentsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingScheduledPaymentsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingScheduledPaymentsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingScheduledPaymentsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.GetProductDetailReturnTypeResolver.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.GetProductDetailReturnTypeResolver.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.GetProductDetailReturnTypeResolver.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.GetProductDetailReturnTypeResolver.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI,1222,0,14,0,188,0,45,0,38,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingPayeesAPI.ParamType,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.ListProductsReturnTypeResolver,36,0,5,0,8,0,5,0,2,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI,471,0,4,0,71,0,24,0,22,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingDirectDebitsAPI,556,0,6,0,82,0,21,0,18,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingPayeesAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingPayeesAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingPayeesAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingPayeesAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingProductsAPI.ParamEffective,34,0,0,0,4,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api.banking,BankingAccountsAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDiscount,320,0,30,0,66,0,42,0,27,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentRecurrence.RecurrenceUType,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductConstraint,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductEligibility,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTransactionDetailExtendedData,170,0,18,0,36,0,24,0,15,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentTo,245,0,24,0,51,0,33,0,21,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingBalance,220,0,22,0,46,0,30,0,19,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingScheduledPaymentsListData,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTransactionDetailExtendedData.ExtensionUType,14,0,0,0,2,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingAccount.OpenStatus,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTransactionDetailExtendedData.Service,26,0,0,0,6,0,3,0,3,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDirectDebit,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductRateTier.UnitOfMeasure,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingAccountById,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentRecurrenceOnceOff,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingAuthorisedEntity,170,0,18,0,36,0,24,0,15,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductLendingRate,345,0,32,0,71,0,45,0,29,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDigitalWalletPayee,155,0,18,0,33,0,22,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingPayee,170,0,18,0,36,0,24,0,15,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingLoanAccount.RepaymentType,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingPayeeDetail.PayeeUType,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPayment,245,0,24,0,51,0,33,0,21,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingPayeeListData,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingTransactionList,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDomesticPayeeAccount,120,0,14,0,26,0,18,0,11,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingScheduledPaymentsList,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDomesticPayeeCard,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingPayee.Type,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingDirectDebitAuthorisationList,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductLendingRate.RepaymentType,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentSet,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentInterval,95,0,12,0,21,0,15,0,9,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingBillerPayee,120,0,14,0,26,0,18,0,11,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductBase,365,0,30,0,72,0,43,0,28,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDetailV1,304,0,22,0,57,0,29,0,18,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTransactionDetailExtendedDataX2p101Payload,120,0,14,0,26,0,18,0,11,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingAccountDetail,468,0,38,0,92,0,52,0,33,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDetailV3,311,0,22,0,58,0,29,0,18,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDetailV2,311,0,22,0,58,0,29,0,18,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDetailV4,311,0,22,0,58,0,29,0,18,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductRateTierSubTier.UnitOfMeasure,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDomesticPayeePayId.Type,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductAdditionalInformationV1,203,0,18,0,42,0,25,0,16,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingTransactionById,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductAdditionalInformationV2,165,0,12,0,30,0,20,0,14,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductRateTier.RateApplicationMethod,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingAccountsBalanceListData,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductConstraint.ConstraintType,54,0,0,0,6,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingInternationalPayeeBankDetailsBankAddress,95,0,12,0,21,0,15,0,9,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentRecurrenceIntervalSchedule.NonBusinessDayTreatment,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTransaction.Status,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingPayeeById,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductFeature,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,RequestAccountIdsData,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingAccountsBalanceList,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDomesticPayee,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTermDepositAccount.MaturityInstructions,34,0,0,0,4,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTransaction.Type,84,0,0,0,9,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentRecurrenceLastWeekday,173,0,18,0,37,0,24,0,15,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingInternationalPayee,95,0,12,0,21,0,15,0,9,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BaseResponse,93,0,10,0,22,0,14,0,9,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentFrom,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductRateTierV3,81,0,6,0,15,0,11,0,8,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductRateTierV1,53,0,4,0,10,0,8,0,6,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDigitalWalletPayee.Provider,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDomesticPayee.PayeeAccountUType,34,0,0,0,4,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductCategory,124,0,0,0,13,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,RequestAccountIds,95,0,12,0,21,0,15,0,9,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingTransactionListData,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingAccountListData,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,AdditionalInformationUri,105,0,14,0,23,0,16,0,9,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTermDepositAccount,170,0,18,0,36,0,24,0,15,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentRecurrenceEventBased,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDiscount.DiscountType,54,0,0,0,6,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingPayeeDetail,215,0,20,0,43,0,25,0,15,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductRateTier,230,0,20,0,47,0,28,0,18,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingProductList,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingAccount,277,0,26,0,58,0,36,0,23,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDomesticPayeePayId,120,0,14,0,26,0,18,0,11,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingLoanAccount,423,0,38,0,87,0,54,0,35,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingDigitalWalletPayee.Type,34,0,0,0,4,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDiscountEligibility,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductLendingRate.LoanPurpose,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentRecurrenceLastWeekday.LastWeekDay,74,0,0,0,8,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingDirectDebitAuthorisationListData,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingInternationalPayeeBankDetails,270,0,26,0,56,0,36,0,23,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductLendingRate.InterestPaymentDue,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentTo.ToUType,54,0,0,0,6,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductCardArt,95,0,12,0,20,0,15,0,9,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductEligibility.EligibilityType,124,0,0,0,13,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductBundle,170,0,18,0,36,0,24,0,15,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDiscountEligibility.DiscountEligibilityType,134,0,0,0,14,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductRateTierSubTier.RateApplicationMethod,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingAccountList,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductRateCondition,95,0,12,0,21,0,15,0,9,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingProductById,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentRecurrenceIntervalSchedule,148,0,16,0,32,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductRateTierSubTier,195,0,20,0,41,0,27,0,17,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingPayeeList,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentRecurrenceLastWeekday.NonBusinessDayTreatment,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductFeature.FeatureType,294,0,0,0,30,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTransaction,495,0,44,0,101,0,63,0,41,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDepositRate.DepositRateType,74,0,0,0,8,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingProductListData,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingCreditCardAccount,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingBalancePurse,95,0,12,0,21,0,15,0,9,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductV2,74,0,4,0,14,0,10,0,8,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductV1,63,0,6,0,13,0,10,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductV4,74,0,4,0,14,0,10,0,8,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingTransactionDetail,206,0,12,0,36,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ParamAccountOpenStatus,34,0,0,0,4,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductFee.FeeType,104,0,0,0,11,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductLendingRate.LendingRateType,114,0,0,0,12,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPayment.Status,34,0,0,0,4,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductFee,345,0,32,0,71,0,45,0,29,0
+Client Library,au.org.consumerdatastandards.client.model.banking,ResponseBankingAccountsBalanceById,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingScheduledPaymentRecurrence,195,0,20,0,41,0,27,0,17,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingInternationalPayeeBeneficiaryDetails,120,0,14,0,26,0,18,0,11,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingAccountDetail.SpecificAccountUType,34,0,0,0,4,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model.banking,BankingProductDepositRate,245,0,24,0,51,0,33,0,21,0
+Client Library,au.org.consumerdatastandards.client,ValidatorAdapterFactory.new LinkedHashMap() {...},27,0,2,0,5,0,3,0,2,0
+Client Library,au.org.consumerdatastandards.client,ApiClient,1435,0,174,0,332,0,141,0,54,0
+Client Library,au.org.consumerdatastandards.client,JSON.ByteArrayAdapter,33,0,4,0,11,0,5,0,3,0
+Client Library,au.org.consumerdatastandards.client,ApiClientFactory,931,0,80,0,207,0,56,0,16,0
+Client Library,au.org.consumerdatastandards.client,CustomDataType,6,303,0,0,2,42,2,9,2,9
+Client Library,au.org.consumerdatastandards.client,ProgressResponseBody.new ForwardingSource() {...},46,0,4,0,6,0,4,0,2,0
+Client Library,au.org.consumerdatastandards.client,ApiResponse,21,0,0,0,8,0,4,0,4,0
+Client Library,au.org.consumerdatastandards.client,JSON.DateTypeAdapter,75,0,8,0,24,0,9,0,5,0
+Client Library,au.org.consumerdatastandards.client,JSON,201,0,10,0,50,0,19,0,14,0
+Client Library,au.org.consumerdatastandards.client,Pair,50,0,8,0,18,0,10,0,6,0
+Client Library,au.org.consumerdatastandards.client,ApiClient.new Callback() {...},51,0,0,0,10,0,3,0,3,0
+Client Library,au.org.consumerdatastandards.client,ApiClient.new X509TrustManager() {...},11,0,0,0,4,0,4,0,4,0
+Client Library,au.org.consumerdatastandards.client,ApiClient.new Callback() {...},53,0,0,0,10,0,3,0,3,0
+Client Library,au.org.consumerdatastandards.client,ValidatorAdapterFactory,53,0,6,0,13,0,5,0,2,0
+Client Library,au.org.consumerdatastandards.client,JSON.SqlDateTypeAdapter,76,0,8,0,22,0,9,0,5,0
+Client Library,au.org.consumerdatastandards.client,ProgressRequestBody,35,0,0,0,11,0,5,0,5,0
+Client Library,au.org.consumerdatastandards.client,ApiException,106,0,0,0,22,0,9,0,9,0
+Client Library,au.org.consumerdatastandards.client,ProgressRequestBody.new ForwardingSink() {...},51,0,4,0,9,0,4,0,2,0
+Client Library,au.org.consumerdatastandards.client,JSON.LocalDateTypeAdapter,44,0,4,0,16,0,7,0,5,0
+Client Library,au.org.consumerdatastandards.client,ConformanceError.Type,74,0,0,0,8,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client,Header,130,0,4,0,18,0,7,0,5,0
+Client Library,au.org.consumerdatastandards.client,JSON.OffsetDateTimeTypeAdapter,63,0,6,0,18,0,8,0,5,0
+Client Library,au.org.consumerdatastandards.client,ProgressResponseBody,37,0,2,0,10,0,6,0,5,0
+Client Library,au.org.consumerdatastandards.client,ConformanceError,73,0,6,0,15,0,10,0,6,0
+Client Library,au.org.consumerdatastandards.client,Format,3,45,0,0,1,7,1,2,1,2
+Client Library,au.org.consumerdatastandards.client.model,CommonPersonDetail,179,0,16,0,35,0,19,0,11,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseCommonCustomerData.CustomerUType,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model,Error,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model,CommonPhoneNumber.Purpose,64,0,0,0,7,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseCommonDiscoveryStatusData.Status,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model,CommonPhysicalAddress,120,0,14,0,26,0,18,0,11,0
+Client Library,au.org.consumerdatastandards.client.model,CommonPAFAddress,595,0,52,0,121,0,75,0,49,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseCommonDiscoveryStatus,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseCommonCustomerDetailData.CustomerUType,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseCommonCustomerDetail,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseCommonCustomerData,120,0,14,0,26,0,18,0,11,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseDiscoveryOutagesListData,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model,LinksPaginated,163,0,18,0,34,0,22,0,13,0
+Client Library,au.org.consumerdatastandards.client.model,CommonEmailAddress.Purpose,44,0,0,0,5,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model,CommonEmailAddress,120,0,14,0,26,0,18,0,11,0
+Client Library,au.org.consumerdatastandards.client.model,CommonPhysicalAddressWithPurpose,101,0,12,0,21,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model,TxMetaPaginated,80,0,8,0,13,0,10,0,6,0
+Client Library,au.org.consumerdatastandards.client.model,CommonPhoneNumber,220,0,22,0,46,0,30,0,19,0
+Client Library,au.org.consumerdatastandards.client.model,CommonOrganisationDetail,178,0,12,0,32,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseCommonCustomer,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model,CommonPerson.OccupationCodeVersion,59,0,0,0,9,0,3,0,3,0
+Client Library,au.org.consumerdatastandards.client.model,CommonSimpleAddress,248,0,24,0,52,0,33,0,21,0
+Client Library,au.org.consumerdatastandards.client.model,CommonOrganisation.OrganisationType,64,0,0,0,7,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseErrorList,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model,DiscoveryOutage,145,0,16,0,31,0,21,0,13,0
+Client Library,au.org.consumerdatastandards.client.model,CommonPerson,245,0,24,0,51,0,33,0,21,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseCommonDiscoveryStatusData,170,0,18,0,36,0,24,0,15,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseCommonCustomerDetailData,120,0,14,0,26,0,18,0,11,0
+Client Library,au.org.consumerdatastandards.client.model,CommonOrganisation,420,0,38,0,86,0,54,0,35,0
+Client Library,au.org.consumerdatastandards.client.model,CommonPhysicalAddress.AddressUType,24,0,0,0,3,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.model,Links,66,0,8,0,16,0,11,0,7,0
+Client Library,au.org.consumerdatastandards.client.model,PaginatedResponse,93,0,10,0,22,0,14,0,9,0
+Client Library,au.org.consumerdatastandards.client.model,ResponseDiscoveryOutagesList,94,0,12,0,20,0,13,0,7,0
+Client Library,au.org.consumerdatastandards.client.model,MetaPaginated,95,0,12,0,21,0,15,0,9,0
+Client Library,au.org.consumerdatastandards.client.model,CommonOrganisation.IndustryCodeVersion,37,0,0,0,7,0,3,0,3,0
+Client Library,au.org.consumerdatastandards.client.model,CommonPhysicalAddressWithPurpose.Purpose,54,0,0,0,6,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api,CommonDiscoveryAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api,CommonDiscoveryAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api,CommonDiscoveryAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api,CommonDiscoveryAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api,CommonCustomerAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api,CommonCustomerAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api,CommonCustomerAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api,CommonCustomerAPI.new TypeToken() {...},6,0,0,0,1,0,1,0,1,0
+Client Library,au.org.consumerdatastandards.client.api,ProtectedAPI,44,0,0,0,15,0,5,0,5,0
+Client Library,au.org.consumerdatastandards.client.api,CommonDiscoveryAPI,202,0,2,0,49,0,16,0,15,0
+Client Library,au.org.consumerdatastandards.client.api,CommonCustomerAPI,201,0,2,0,48,0,14,0,13,0

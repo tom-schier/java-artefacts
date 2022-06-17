@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BankingProductBase.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Client Library</a> &gt; <a href="index.source.html" class="el_package">au.org.consumerdatastandards.client.model.banking</a> &gt; <span class="el_source">BankingProductBase.java</span></div><h1>BankingProductBase.java</h1><pre class="source lang-java linenums">package au.org.consumerdatastandards.client.model.banking;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.time.OffsetDateTime;
+import java.util.Objects;
+
+<span class="nc" id="L8">public class BankingProductBase implements BankingProduct {</span>
+
+    private String applicationUri;
+
+    private String brand;
+
+    private String brandName;
+
+    private String description;
+
+    private OffsetDateTime effectiveFrom;
+
+    private OffsetDateTime effectiveTo;
+
+    private Boolean isTailored;
+
+    private OffsetDateTime lastUpdated;
+
+    private String name;
+
+    private BankingProductCategory productCategory;
+
+    private String productId;
+
+    /**
+     * A link to an application web page where this product can be applied for.
+     * @return applicationUri
+     */
+    @Override
+    public String getApplicationUri() {
+<span class="nc" id="L38">        return applicationUri;</span>
+    }
+
+    @Override
+    public void setApplicationUri(String applicationUri) {
+<span class="nc" id="L43">        this.applicationUri = applicationUri;</span>
+<span class="nc" id="L44">    }</span>
+
+    /**
+     * A label of the brand for the product. Able to be used for filtering. For data holders with single brands this value is still required
+     * @return brand
+     */
+    @Override
+    public String getBrand() {
+<span class="nc" id="L52">        return brand;</span>
+    }
+
+    @Override
+    public void setBrand(String brand) {
+<span class="nc" id="L57">        this.brand = brand;</span>
+<span class="nc" id="L58">    }</span>
+
+    /**
+     * An optional display name of the brand
+     * @return brandName
+     */
+    @Override
+    public String getBrandName() {
+<span class="nc" id="L66">        return brandName;</span>
+    }
+
+    @Override
+    public void setBrandName(String brandName) {
+<span class="nc" id="L71">        this.brandName = brandName;</span>
+<span class="nc" id="L72">    }</span>
+
+    /**
+     * A description of the product
+     * @return description
+     */
+    @Override
+    public String getDescription() {
+<span class="nc" id="L80">        return description;</span>
+    }
+
+    @Override
+    public void setDescription(String description) {
+<span class="nc" id="L85">        this.description = description;</span>
+<span class="nc" id="L86">    }</span>
+
+    /**
+     * The date and time from which this product is effective (ie. is available for origination).  Used to enable the articulation of products to the regime before they are available for customers to originate
+     * @return effectiveFrom
+     */
+    @Override
+    public OffsetDateTime getEffectiveFrom() {
+<span class="nc" id="L94">        return effectiveFrom;</span>
+    }
+
+    @Override
+    public void setEffectiveFrom(OffsetDateTime effectiveFrom) {
+<span class="nc" id="L99">        this.effectiveFrom = effectiveFrom;</span>
+<span class="nc" id="L100">    }</span>
+
+    /**
+     * The date and time at which this product will be retired and will no longer be offered.  Used to enable the managed deprecation of products
+     * @return effectiveTo
+     */
+    @Override
+    public OffsetDateTime getEffectiveTo() {
+<span class="nc" id="L108">        return effectiveTo;</span>
+    }
+
+    @Override
+    public void setEffectiveTo(OffsetDateTime effectiveTo) {
+<span class="nc" id="L113">        this.effectiveTo = effectiveTo;</span>
+<span class="nc" id="L114">    }</span>
+
+    /**
+     * Indicates whether the product is specifically tailored to a circumstance.  In this case fees and prices are significantly negotiated depending on context. While all products are open to a degree of tailoring this flag indicates that tailoring is expected and thus that the provision of specific fees and rates is not applicable
+     * @return isTailored
+     */
+    @Override
+    public Boolean getIsTailored() {
+<span class="nc" id="L122">        return isTailored;</span>
+    }
+
+    @Override
+    public void setIsTailored(Boolean isTailored) {
+<span class="nc" id="L127">        this.isTailored = isTailored;</span>
+<span class="nc" id="L128">    }</span>
+
+    /**
+     * The last date and time that the information for this product was changed (or the creation date for the product if it has never been altered)
+     * @return lastUpdated
+     */
+    @Override
+    public OffsetDateTime getLastUpdated() {
+<span class="nc" id="L136">        return lastUpdated;</span>
+    }
+
+    @Override
+    public void setLastUpdated(OffsetDateTime lastUpdated) {
+<span class="nc" id="L141">        this.lastUpdated = lastUpdated;</span>
+<span class="nc" id="L142">    }</span>
+
+    /**
+     * The display name of the product
+     * @return name
+     */
+    @Override
+    public String getName() {
+<span class="nc" id="L150">        return name;</span>
+    }
+
+    @Override
+    public void setName(String name) {
+<span class="nc" id="L155">        this.name = name;</span>
+<span class="nc" id="L156">    }</span>
+
+    /**
+     * Get productCategory
+     * @return productCategory
+     */
+    @Override
+    public BankingProductCategory getProductCategory() {
+<span class="nc" id="L164">        return productCategory;</span>
+    }
+
+    @Override
+    public void setProductCategory(BankingProductCategory productCategory) {
+<span class="nc" id="L169">        this.productCategory = productCategory;</span>
+<span class="nc" id="L170">    }</span>
+
+    /**
+     * A data holder specific unique identifier for this product. This identifier must be unique to a product but does not otherwise need to adhere to ID permanence guidelines.
+     * @return productId
+     */
+    @Override
+    public String getProductId() {
+<span class="nc" id="L178">        return productId;</span>
+    }
+
+    @Override
+    public void setProductId(String productId) {
+<span class="nc" id="L183">        this.productId = productId;</span>
+<span class="nc" id="L184">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L188" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L189">            return true;</span>
+        }
+<span class="nc bnc" id="L191" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L192">            return false;</span>
+        }
+<span class="nc" id="L194">        BankingProductBase bankingProductV1 = (BankingProductBase) o;</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">        return Objects.equals(this.applicationUri, bankingProductV1.applicationUri) &amp;&amp;</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">            Objects.equals(this.brand, bankingProductV1.brand) &amp;&amp;</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">            Objects.equals(this.brandName, bankingProductV1.brandName) &amp;&amp;</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">            Objects.equals(this.description, bankingProductV1.description) &amp;&amp;</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">            Objects.equals(this.effectiveFrom, bankingProductV1.effectiveFrom) &amp;&amp;</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">            Objects.equals(this.effectiveTo, bankingProductV1.effectiveTo) &amp;&amp;</span>
+<span class="nc bnc" id="L201" title="All 2 branches missed.">            Objects.equals(this.isTailored, bankingProductV1.isTailored) &amp;&amp;</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">            Objects.equals(this.lastUpdated, bankingProductV1.lastUpdated) &amp;&amp;</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">            Objects.equals(this.name, bankingProductV1.name) &amp;&amp;</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">            Objects.equals(this.productCategory, bankingProductV1.productCategory) &amp;&amp;</span>
+<span class="nc bnc" id="L205" title="All 2 branches missed.">            Objects.equals(this.productId, bankingProductV1.productId);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L210">        return Objects.hash(</span>
+            applicationUri,
+            brand,
+            brandName,
+            description,
+            effectiveFrom,
+            effectiveTo,
+            isTailored,
+            lastUpdated,
+            name,
+            productCategory,
+            productId);
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L226">        StringWriter sw = new StringWriter();</span>
+<span class="nc" id="L227">        PrintWriter pw = new PrintWriter(sw);</span>
+<span class="nc" id="L228">        pw.print(&quot;class &quot;); pw.print(getClass().getSimpleName()); pw.println(&quot; {&quot;);</span>
+<span class="nc" id="L229">        writeProperties(pw);</span>
+<span class="nc" id="L230">        pw.print(&quot;}&quot;);</span>
+<span class="nc" id="L231">        return sw.toString();</span>
+    }
+
+    protected void writeProperties(PrintWriter pw) {
+<span class="nc" id="L235">        pw.print(&quot;   applicationUri: &quot;); pw.println(toIndentedString(applicationUri));</span>
+<span class="nc" id="L236">        pw.print(&quot;   brand: &quot;); pw.println(toIndentedString(brand));</span>
+<span class="nc" id="L237">        pw.print(&quot;   brandName: &quot;); pw.println(toIndentedString(brandName));</span>
+<span class="nc" id="L238">        pw.print(&quot;   description: &quot;); pw.println(toIndentedString(description));</span>
+<span class="nc" id="L239">        pw.print(&quot;   effectiveFrom: &quot;); pw.println(toIndentedString(effectiveFrom));</span>
+<span class="nc" id="L240">        pw.print(&quot;   effectiveTo: &quot;); pw.println(toIndentedString(effectiveTo));</span>
+<span class="nc" id="L241">        pw.print(&quot;   isTailored: &quot;); pw.println(toIndentedString(isTailored));</span>
+<span class="nc" id="L242">        pw.print(&quot;   lastUpdated: &quot;); pw.println(toIndentedString(lastUpdated));</span>
+<span class="nc" id="L243">        pw.print(&quot;   name: &quot;); pw.println(toIndentedString(name));</span>
+<span class="nc" id="L244">        pw.print(&quot;   productCategory: &quot;); pw.println(toIndentedString(productCategory));</span>
+<span class="nc" id="L245">        pw.print(&quot;   productId: &quot;); pw.println(toIndentedString(productId));</span>
+<span class="nc" id="L246">    }</span>
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    protected String toIndentedString(Object o) {
+<span class="nc bnc" id="L253" title="All 2 branches missed.">        if (o == null) {</span>
+<span class="nc" id="L254">            return &quot;null&quot;;</span>
+        }
+<span class="nc" id="L256">        return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BankingProductDetailV2.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Client Library</a> &gt; <a href="index.source.html" class="el_package">au.org.consumerdatastandards.client.model.banking</a> &gt; <span class="el_source">BankingProductDetailV2.java</span></div><h1>BankingProductDetailV2.java</h1><pre class="source lang-java linenums">package au.org.consumerdatastandards.client.model.banking;
+
+import java.util.List;
+import java.util.Objects;
+
+<span class="nc" id="L6">public class BankingProductDetailV2 extends BankingProductV2 implements BankingProductDetail {</span>
+
+    private List&lt;BankingProductBundle&gt; bundles;
+
+    private List&lt;BankingProductFeature&gt; features;
+
+    private List&lt;BankingProductConstraint&gt; constraints;
+
+    private List&lt;BankingProductEligibility&gt; eligibility;
+
+    private List&lt;BankingProductFee&gt; fees;
+
+    private List&lt;BankingProductDepositRate&lt;BankingProductRateTierV1&gt;&gt; depositRates;
+
+    private List&lt;BankingProductLendingRate&lt;BankingProductRateTierV1&gt;&gt; lendingRates;
+
+    /**
+     * An array of bundles that this product participates in.  Each bundle is described by free form information but also by a list of product IDs of the other products that are included in the bundle.  It is assumed that the current product is included in the bundle also
+     * @return bundles
+     */
+    public List&lt;BankingProductBundle&gt; getBundles() {
+<span class="nc" id="L27">        return bundles;</span>
+    }
+
+    public void setBundles(List&lt;BankingProductBundle&gt; bundles) {
+<span class="nc" id="L31">        this.bundles = bundles;</span>
+<span class="nc" id="L32">    }</span>
+
+    /**
+     * Array of features available for the product
+     * @return features
+     */
+    public List&lt;BankingProductFeature&gt; getFeatures() {
+<span class="nc" id="L39">        return features;</span>
+    }
+
+    public void setFeatures(List&lt;BankingProductFeature&gt; features) {
+<span class="nc" id="L43">        this.features = features;</span>
+<span class="nc" id="L44">    }</span>
+
+    /**
+     * Constraints on the application for or operation of the product such as minimum balances or limit thresholds
+     * @return constraints
+     */
+    public List&lt;BankingProductConstraint&gt; getConstraints() {
+<span class="nc" id="L51">        return constraints;</span>
+    }
+
+    public void setConstraints(List&lt;BankingProductConstraint&gt; constraints) {
+<span class="nc" id="L55">        this.constraints = constraints;</span>
+<span class="nc" id="L56">    }</span>
+
+    /**
+     * Eligibility criteria for the product
+     * @return eligibility
+     */
+    public List&lt;BankingProductEligibility&gt; getEligibility() {
+<span class="nc" id="L63">        return eligibility;</span>
+    }
+
+    public void setEligibility(List&lt;BankingProductEligibility&gt; eligibility) {
+<span class="nc" id="L67">        this.eligibility = eligibility;</span>
+<span class="nc" id="L68">    }</span>
+
+    /**
+     * Fees applicable for the product
+     * @return fees
+     */
+    public List&lt;BankingProductFee&gt; getFees() {
+<span class="nc" id="L75">        return fees;</span>
+    }
+
+    public void setFees(List&lt;BankingProductFee&gt; fees) {
+<span class="nc" id="L79">        this.fees = fees;</span>
+<span class="nc" id="L80">    }</span>
+
+    /**
+     * Interest rates available for deposits
+     * @return depositRates
+     */
+    public List&lt;BankingProductDepositRate&lt;BankingProductRateTierV1&gt;&gt; getDepositRates() {
+<span class="nc" id="L87">        return depositRates;</span>
+    }
+
+    public void setDepositRates(List&lt;BankingProductDepositRate&lt;BankingProductRateTierV1&gt;&gt; depositRates) {
+<span class="nc" id="L91">        this.depositRates = depositRates;</span>
+<span class="nc" id="L92">    }</span>
+
+    /**
+     * Interest rates charged against lending balances
+     * @return lendingRates
+     */
+    public List&lt;BankingProductLendingRate&lt;BankingProductRateTierV1&gt;&gt; getLendingRates() {
+<span class="nc" id="L99">        return lendingRates;</span>
+    }
+
+    public void setLendingRates(List&lt;BankingProductLendingRate&lt;BankingProductRateTierV1&gt;&gt; lendingRates) {
+<span class="nc" id="L103">        this.lendingRates = lendingRates;</span>
+<span class="nc" id="L104">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L109">            return true;</span>
+        }
+<span class="nc bnc" id="L111" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L112">            return false;</span>
+        }
+<span class="nc" id="L114">        BankingProductDetailV2 bankingProductDetail = (BankingProductDetailV2) o;</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        return Objects.equals(this.bundles, bankingProductDetail.bundles) &amp;&amp;</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">            Objects.equals(this.features, bankingProductDetail.features) &amp;&amp;</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">            Objects.equals(this.constraints, bankingProductDetail.constraints) &amp;&amp;</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">            Objects.equals(this.eligibility, bankingProductDetail.eligibility) &amp;&amp;</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">            Objects.equals(this.fees, bankingProductDetail.fees) &amp;&amp;</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">            Objects.equals(this.depositRates, bankingProductDetail.depositRates) &amp;&amp;</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">            Objects.equals(this.lendingRates, bankingProductDetail.lendingRates) &amp;&amp;</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">            super.equals(o);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L127">        return Objects.hash(</span>
+            bundles,
+            features,
+            constraints,
+            eligibility,
+            fees,
+            depositRates,
+            lendingRates,
+<span class="nc" id="L135">            super.hashCode());</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L140">        return &quot;class BankingProductDetail {\n&quot; +</span>
+<span class="nc" id="L141">            &quot;   productId: &quot; + toIndentedString(getProductId()) + &quot;\n&quot; +</span>
+<span class="nc" id="L142">            &quot;   effectiveFrom: &quot; + toIndentedString(getEffectiveFrom()) + &quot;\n&quot; +</span>
+<span class="nc" id="L143">            &quot;   effectiveTo: &quot; + toIndentedString(getEffectiveTo()) + &quot;\n&quot; +</span>
+<span class="nc" id="L144">            &quot;   lastUpdated: &quot; + toIndentedString(getLastUpdated()) + &quot;\n&quot; +</span>
+<span class="nc" id="L145">            &quot;   productCategory: &quot; + toIndentedString(getProductCategory()) + &quot;\n&quot; +</span>
+<span class="nc" id="L146">            &quot;   name: &quot; + toIndentedString(getName()) + &quot;\n&quot; +</span>
+<span class="nc" id="L147">            &quot;   description: &quot; + toIndentedString(getDescription()) + &quot;\n&quot; +</span>
+<span class="nc" id="L148">            &quot;   brand: &quot; + toIndentedString(getBrand()) + &quot;\n&quot; +</span>
+<span class="nc" id="L149">            &quot;   brandName: &quot; + toIndentedString(getBrandName()) + &quot;\n&quot; +</span>
+<span class="nc" id="L150">            &quot;   applicationUri: &quot; + toIndentedString(getApplicationUri()) + &quot;\n&quot; +</span>
+<span class="nc" id="L151">            &quot;   isTailored: &quot; + toIndentedString(getIsTailored()) + &quot;\n&quot; +</span>
+<span class="nc" id="L152">            &quot;   additionalInformation: &quot; + toIndentedString(getAdditionalInformation()) + &quot;\n&quot; +</span>
+<span class="nc" id="L153">            &quot;   cardArt: &quot; + toIndentedString(getCardArt()) + &quot;\n&quot; +</span>
+<span class="nc" id="L154">            &quot;   bundles: &quot; + toIndentedString(bundles) + &quot;\n&quot; +</span>
+<span class="nc" id="L155">            &quot;   features: &quot; + toIndentedString(features) + &quot;\n&quot; +</span>
+<span class="nc" id="L156">            &quot;   constraints: &quot; + toIndentedString(constraints) + &quot;\n&quot; +</span>
+<span class="nc" id="L157">            &quot;   eligibility: &quot; + toIndentedString(eligibility) + &quot;\n&quot; +</span>
+<span class="nc" id="L158">            &quot;   fees: &quot; + toIndentedString(fees) + &quot;\n&quot; +</span>
+<span class="nc" id="L159">            &quot;   depositRates: &quot; + toIndentedString(depositRates) + &quot;\n&quot; +</span>
+<span class="nc" id="L160">            &quot;   lendingRates: &quot; + toIndentedString(lendingRates) + &quot;\n&quot; +</span>
+            &quot;}&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
